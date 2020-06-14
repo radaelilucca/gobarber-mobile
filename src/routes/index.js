@@ -1,15 +1,15 @@
-import React from 'react'
-import { NavigationContainer } from '@react-navigation/native';
+import React from "react";
+import {useSelector} from "react-redux";
+import {NavigationContainer} from "@react-navigation/native";
 
-import AuthFlow from './AuthFlow'
-import AppStack from './AppStack'
+import AuthFlow from "./AuthFlow";
+import AppStack from "./AppStack";
 
-const logged = false;
-
-export default function Routes(){
+export default function Routes() {
+  const signed = useSelector(state => state.auth.signed);
   return (
     <NavigationContainer>
-    { logged ? <AppStack/> : <AuthFlow/>}
+      {signed ? <AppStack /> : <AuthFlow />}
     </NavigationContainer>
-  )
+  );
 }
