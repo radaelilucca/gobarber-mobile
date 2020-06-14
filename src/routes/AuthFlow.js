@@ -6,11 +6,15 @@ import SignUp from '~/pages/SignUp'
 
 const AuthStack = createStackNavigator()
 
+const navigationOptions = {
+  headerShown: false
+}
+
 const AuthFlow = () => {
   return (
     <AuthStack.Navigator>
-      <AuthStack.Screen name="SignUp" component={SignUp} />
-      <AuthStack.Screen name="SignIn" component={SignIn} />
+      <AuthStack.Screen name="SignUp" component={SignUp} options={navigationOptions} />
+      <AuthStack.Screen name="SignIn" component={SignIn} options={navigationOptions}/>
     </AuthStack.Navigator>
   )
 }
