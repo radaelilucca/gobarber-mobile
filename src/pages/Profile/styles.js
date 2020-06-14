@@ -5,6 +5,12 @@ import Button from "~/components/Button";
 export const Container = styled.SafeAreaView`
   flex: 1;
 `;
+export const Separator = styled.View`
+  height: 1px;
+  background: #fff;
+  opacity: 0.2;
+  margin: 20px 0 30px;
+`;
 
 export const Title = styled.Text`
   font-size: 20px;
@@ -28,9 +34,7 @@ export const FormInput = styled(Input)`
 export const SubmitButton = styled(Button)`
   margin-top: 5px;
 `;
-export const Separator = styled.View`
-  height: 1px;
-  background: #fff;
-  opacity: 0.2;
-  margin: 20px 0 30px;
+export const LogoutButton = styled(Button)`
+  margin-top: 15px;
+  background: #f64c75;
 `;

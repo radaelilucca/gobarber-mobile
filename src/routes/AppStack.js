@@ -1,10 +1,12 @@
 import React from "react";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
+
 import Icon from "react-native-vector-icons/MaterialIcons";
 
 import Dashboard from "~/pages/Dashboard";
 import Profile from "~/pages/Profile";
-import NewAppointment from "~/pages/NewAppointment";
+
+import NewAppointmentStack from "./NewAppointmentStack";
 
 const Tabs = createBottomTabNavigator();
 
@@ -24,16 +26,6 @@ const AppStack = () => {
         },
       }}>
       <Tabs.Screen
-        name="Profile"
-        component={Profile}
-        options={{
-          tabBarLabel: "Meu perfil",
-          tabBarIcon: ({color}) => (
-            <Icon name="person" size={20} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
         name="Dashboard"
         component={Dashboard}
         options={{
@@ -44,9 +36,29 @@ const AppStack = () => {
         }}
       />
       <Tabs.Screen
-        name="NewAppointment"
-        component={NewAppointment}
-        options={{tabBarLabel: "Agendar"}}
+        name="Agendar"
+        component={NewAppointmentStack}
+        options={{
+          tabBarVisible: false,
+          tabBarLabel: "Agendar",
+          tabBarIcon: ({color}) => (
+            <Icon
+              name="add-circle-outline"
+              size={20}
+              color={"rgba(255, 255, 255, 0.6)"}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          tabBarLabel: "Meu perfil",
+          tabBarIcon: ({color}) => (
+            <Icon name="person" size={20} color={color} />
+          ),
+        }}
       />
     </Tabs.Navigator>
   );
