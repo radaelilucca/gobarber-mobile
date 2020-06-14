@@ -12,7 +12,7 @@ const AppStack = () => {
   return (
     <Tabs.Navigator
       backBehavior="initialRoute"
-      initialRouteName="Dashboard"
+      initialRouteName="Profile"
       tabBarOptions={{
         keyboardHidesTabBar: true,
 
