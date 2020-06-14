@@ -34,7 +34,11 @@ const NewAppointmentStack = () => {
           ),
         })}
       />
-      <NewStack.Screen name="Select Date" component={SelectDateTime} />
+      <NewStack.Screen
+        name="SelectDateTime"
+        component={SelectDateTime}
+        options={{title: "Selecione o horário"}}
+      />
       <NewStack.Screen name="Confirm" component={Confirm} />
     </NewStack.Navigator>
   );
