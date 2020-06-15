@@ -20,7 +20,7 @@ const NewAppointmentStack = () => {
         },
       }}>
       <NewStack.Screen
-        name="Select Provider"
+        name="SelectProvider"
         component={SelectProvider}
         options={({navigation}) => ({
           title: "Selecione o prestador",
@@ -37,7 +37,17 @@ const NewAppointmentStack = () => {
       <NewStack.Screen
         name="SelectDateTime"
         component={SelectDateTime}
-        options={{title: "Selecione o horário"}}
+        options={({navigation}) => ({
+          title: "Selecione o horário",
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate("SelectProvider");
+              }}>
+              <Icon name="chevron-left" size={24} color="#fff" />
+            </TouchableOpacity>
+          ),
+        })}
       />
       <NewStack.Screen name="Confirm" component={Confirm} />
     </NewStack.Navigator>
