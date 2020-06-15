@@ -27,7 +27,7 @@ const SelectProvider = ({navigation}) => {
           renderItem={({item: provider}) => (
             <Provider
               onPress={() => {
-                navigation.navigate("SelectDateTime");
+                navigation.navigate("SelectDate", {provider});
               }}>
               <Avatar
                 source={{
