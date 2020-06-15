@@ -14,10 +14,9 @@ const AppStack = () => {
   return (
     <Tabs.Navigator
       backBehavior="initialRoute"
-      initialRouteName="Profile"
+      initialRouteName="Dashboard"
       tabBarOptions={{
         keyboardHidesTabBar: true,
-
         activeTintColor: "#FFF",
         inactiveTintColor: "rgba(255, 255, 255, 0.6)",
 
@@ -39,6 +38,7 @@ const AppStack = () => {
         name="Agendar"
         component={NewAppointmentStack}
         options={{
+          unmountOnBlur: true,
           tabBarVisible: false,
           tabBarLabel: "Agendar",
           tabBarIcon: ({color}) => (

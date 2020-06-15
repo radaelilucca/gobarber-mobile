@@ -49,7 +49,21 @@ const NewAppointmentStack = () => {
           ),
         })}
       />
-      <NewStack.Screen name="Confirm" component={Confirm} />
+      <NewStack.Screen
+        name="Confirm"
+        component={Confirm}
+        options={({navigation}) => ({
+          title: "Confirme o agendamento",
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => {
+                navigation.goBack();
+              }}>
+              <Icon name="chevron-left" size={24} color="#fff" />
+            </TouchableOpacity>
+          ),
+        })}
+      />
     </NewStack.Navigator>
   );
 };

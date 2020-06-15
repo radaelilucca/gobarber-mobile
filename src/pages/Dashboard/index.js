@@ -6,7 +6,7 @@ import {Container, Title, List} from "./styles";
 
 import Appointment from "~/components/Appointment";
 
-const Dashboard = () => {
+const Dashboard = ({navigation}) => {
   const [appointments, setAppointments] = useState([]);
 
   async function handleCancelAppointment(id) {
@@ -23,16 +23,17 @@ const Dashboard = () => {
       )
     );
   }
+  async function loadAppointments() {
+    const response = await api.get("/appointments");
+
+    setAppointments(response.data);
+  }
 
   useEffect(() => {
-    async function loadAppointments() {
-      const response = await api.get("/appointments");
-
-      setAppointments(response.data);
-    }
-
-    loadAppointments();
-  }, []);
+    navigation.addListener("focus", () => {
+      loadAppointments();
+    });
+  }, [navigation]);
 
   return (
     <Background>
